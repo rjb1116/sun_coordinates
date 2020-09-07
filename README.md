@@ -27,7 +27,7 @@ The key calculation is getting the vector that points from the person on the sur
 
 ![Figure2](Figures/figure2.png)
 
-This can be calculated simply by adding two vectors: a vector pointing from the center of the sun to the center of the earth (Vector A) and a vector pointing from the center of the earth to the surface of the sun (Vector B).
+This can be calculated simply by adding two vectors: a vector pointing from the center of the sun to the center of the earth (Vector A) and a vector pointing from the center of the earth to the surface of the earth (Vector B).
 
 _**A**_ + _**B**_ = -_**C**_ 
 
@@ -44,7 +44,7 @@ To reconcile this challenge, the key is to use coordinate transformations! The b
 Useful guide to coordinate transformations can be found here:
 (https://ocw.mit.edu/courses/aeronautics-and-astronautics/16-07-dynamics-fall-2009/lecture-notes/MIT16_07F09_Lec03.pdf)
 
-###Step 1. Writing _**A**_
+### Step 1. Writing _**A**_
 
 ![Figure 3](Figures/figure3.png)
 
