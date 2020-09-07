@@ -25,7 +25,6 @@ Example Command Line Input:
 
 ```
 python sun.py -d '2020-09-07 13:54:00' -c 'San Francisco' -p True
-
 ```
 
 ## Math behind calculations
@@ -55,19 +54,21 @@ Useful guide to coordinate transformations can be found here:
 
 ![Figure 3](Figures/figure3.png)
 
-From the above figure, it's pretty straightforward to see that vector A, in the coordinate system of the sun (superscript s), can be written as:
+From the above figure, it's pretty straightforward to see that vector _**A**_, in the coordinate system of the sun (superscript s), can be written as:
 
 ![Figure 4](Figures/figure4.png)
 
 ### Step 2. Transforming _**A**_ into earth's coodinate system
 
-We now have to rewrite A in the coordinate system of the earth. Fun fact: If it were not for the fact that the earth rotated around a tilted axis, the earth and the sun would share the same coordinate system! This difference is the key to coming up with the basis vectors for the earth's coordinate system. The figure below will help illustrate how I came up with the earth's basis vectors.
+We now have to transform _**A**_<sup>s</sup> to _**A**_<sup>e</sup> (coordinate system of the earth). Fun fact: If it were not for the fact that the earth rotated around a tilted axis, the earth and the sun would share the same coordinate system! This difference is the key to coming up with the basis vectors for the earth's coordinate system. The figure below will help illustrate visually how the sun's basis vectors and the earth's basis vectors differ.
 
 ![Figure 5](Figures/figure5.png)
 
 From the figure, we see that y and z are shifted by the tilt of the earth. Luckily, we can define the new coordinate system where the tilt only occurs in yz plane such that x is preserved! The basis vectors for earth's coordinate system are as follows:
 
 ![Figure 6](Figures/figure6.png)
+
+To transform _**A**_<sup>s</sup>, we use the following formula, which can be found in the MIT lecture notes I linked above.
 
 
 
