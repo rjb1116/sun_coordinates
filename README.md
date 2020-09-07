@@ -52,6 +52,19 @@ From the above figure, it's pretty straightforward to see that vector A, in the 
 
 ![Figure 4](Figures/figure4.png)
 
+### Step 2. Transforming _**A**_ into earth's coodinate system
+
+We now have to rewrite A in the coordinate system of the earth. Fun fact: If it were not for the fact that the earth rotated around a tilted axis, the earth and the sun would share the same coordinate system! This difference is the key to coming up with the basis vectors for the earth's coordinate system. The figure below will help illustrate how I came up with the earth's basis vectors.
+
+![Figure 5](Figures/figure5.png)
+
+From the figure, we see that y and z are shifted by the tilt of the earth. Luckily, we can define the new coordinate system where the tilt only occurs in yz plane such that x is preserved! The basis vectors for earth's coordinate system are below:
+
+![Figure 6](Figures/figure6.png)
+
+
+
+
 
 
 
