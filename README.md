@@ -23,7 +23,11 @@ Command Line Instructions:
 
 ## Math behind calculations
 
-The key calculation is getting the vector that points from the person on the surface of the earth, to the sun (Vector A in the figure below). This can be calculated simply be adding two vectors: a vector pointing from the center of the sun to the center of the earth (Vector A) and a vector pointing from the center of the earth to the surface of the sun (Vector B).
+The key calculation is getting the vector that points from the person on the surface of the earth, to the sun (Vector A in the figure below). 
+
+![Figure2](Figures/figure2.png)
+
+This can be calculated simply be adding two vectors: a vector pointing from the center of the sun to the center of the earth (Vector A) and a vector pointing from the center of the earth to the surface of the sun (Vector B).
 
 _**A**_ + _**B**_ = -_**C**_ 
 
