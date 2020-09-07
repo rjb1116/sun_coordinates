@@ -21,6 +21,13 @@ Command Line Instructions:
 * -c: String containing the city. This input is relatively versatile since multiple city structures are accepted (for example: San Francisco or San Francisco, CA)
 * -p: Write True if you want a png image of the 3D visualization to be stored locally with the title 'out.png'
 
+Example Command Line Input:
+
+```
+python sun.py -d '2020-09-07 13:54:00' -c 'San Francisco' -p True
+
+```
+
 ## Math behind calculations
 
 The key calculation is getting the vector that points from the person on the surface of the earth, to the sun (Vector C in the figure below). 
@@ -58,7 +65,7 @@ We now have to rewrite A in the coordinate system of the earth. Fun fact: If it 
 
 ![Figure 5](Figures/figure5.png)
 
-From the figure, we see that y and z are shifted by the tilt of the earth. Luckily, we can define the new coordinate system where the tilt only occurs in yz plane such that x is preserved! The basis vectors for earth's coordinate system are below:
+From the figure, we see that y and z are shifted by the tilt of the earth. Luckily, we can define the new coordinate system where the tilt only occurs in yz plane such that x is preserved! The basis vectors for earth's coordinate system are as follows:
 
 ![Figure 6](Figures/figure6.png)
 
