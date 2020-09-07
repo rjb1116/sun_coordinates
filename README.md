@@ -40,3 +40,21 @@ To reconcile this challenge, the key is to use coordinate transformations! The b
 3. Write vector _**B**_, which goes from the center of the earth to the earth's surface, in earth's coordinate system.
 4. Add _**A**_(transformed) and _**B**_ to get _**C**_, which is the vector we ultimately want, but is currently in the wrong coordinate system.
 5. Transform _**C**_ into the coordinate system of the earth's surface (origin centered at a person's feet on the surface)
+
+Useful guide to coordinate transformations can be found here:
+(https://ocw.mit.edu/courses/aeronautics-and-astronautics/16-07-dynamics-fall-2009/lecture-notes/MIT16_07F09_Lec03.pdf)
+
+###Step 1. Writing _**A**_
+
+![Figure 3](Figures/figure3.png)
+
+From the above figure, it's pretty straightforward to see that vector A, in the coordinate system of the sun (superscript s), can be written as:
+
+![Figure 4](Figures/figure4.png)
+
+
+
+
+
+
+
