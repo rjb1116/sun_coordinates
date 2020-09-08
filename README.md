@@ -19,12 +19,12 @@ These inputs can be given in the command line, or by modifying the get_inputs(ar
 Command Line Instructions:
 * -d: Date and time string of form 'YYYY-MM-DD HH:MM:SS'
 * -c: String containing the city. This input is relatively versatile since multiple city structures are accepted (for example: San Francisco or San Francisco, CA)
-* -p: Write True if you want a png image of the 3D visualization to be stored locally with the title 'out.png'
+* -p: Write a save file name + extension to save an image of the 3D visualization locally
 
 Example Command Line Input:
 
 ```
-python sun.py -d '2020-09-07 13:54:00' -c 'San Francisco' -p True
+python sun.py -d '2020-09-07 13:54:00' -c 'San Francisco' -p out.png
 ```
 Default inputs:
 * If no inputs are provided, the model will output the sun's location in San Francisco, CA at the current time it is in SF.

@@ -237,7 +237,7 @@ def make_3D_plot(Theta, Phi, Theta_from_North, Phi_from_Horizon, date_time_local
 	plt.show()
 
 	if save_plot:
-		fig.savefig('out.png')
+		fig.savefig(save_plot)
 
 
 def main(args):
