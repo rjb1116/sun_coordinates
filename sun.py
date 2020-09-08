@@ -189,7 +189,7 @@ def make_3D_plot(Theta, Phi, Theta_from_North, Phi_from_Horizon, date_time_local
 	
 	
 	#Text labels on graph
-	time_label = dt.datetime.strftime(date_time_local, '%H:%M')
+	time_label = dt.datetime.strftime(date_time_local, '%H:%M %m-%d-%Y')
 	city_label = 'City: ' + city
 	theta_phi_label = f'Theta: {Theta_from_North} deg\nPhi: {Phi_from_Horizon} deg'
 	label = 'Time: ' + time_label + '\n' + city_label + '\n' + theta_phi_label
@@ -237,7 +237,7 @@ def make_3D_plot(Theta, Phi, Theta_from_North, Phi_from_Horizon, date_time_local
 	plt.show()
 
 	if save_plot:
-		fig.savefig('out.png')
+		fig.savefig(save_plot)
 
 
 def main(args):
