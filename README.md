@@ -12,9 +12,15 @@ A 3D visualization using Matplotlib of the sun's location in the sky is also out
 ![Figure1](Figures/figure1.png)
 
 ## How to run the code
-The code takes three inputs: time, location, and save figure boolean
 
-These inputs can be given in the command line, or by modifying the get_inputs(args) method within the script directly.
+First, setup environment and install dependencies by running:
+
+```
+virtulenv .
+. bin/activate
+pip install -r requirements.txt
+```
+Now, you should be able to run the code. It takes three inputs: time, location, and save figure boolean. These inputs can be given in the command line, or by modifying the get_inputs(args) method within the script directly.
 
 Command Line Instructions:
 * -d: Date and time string of form 'YYYY-MM-DD HH:MM:SS'
