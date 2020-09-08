@@ -90,6 +90,7 @@ To get _**C**_<sup>e</sup>, we need to add _**A**_<sup>e</sup> and _**B**_<sup>e
 
 To transform _**C**_<sup>e</sup> to _**C**_<sup>es</sup> we need the basis of the earth's surface coordinate system. Deriving this basis was the most challenging part of the model by far, but let me provide some intuition that will hopefully make it understandable. For this basis, I visualized myself standing on the earth's surface and realized that the cardinal direction are in some ways at least part of a basis. So rather than using x, y, z for this basis, I used North (_**n**_<sup>es</sup>), East (_**e**_<sup>es</sup>), and Perpendicular (_**p**_<sup>es</sup>). If you're on the surface of earth, _**n**_<sup>es</sup> is the tangential vector always pointing towards the north pole. _**e**_<sup>es</sup> is the tengential vector always pointing due east. _**p**_<sup>es</sup> is the vector normal to the surface. As these are all orthogonal to each other, they have to form a basis.
 
+![Figure 12](Figures/figure12.png)
 
 The challenge is representing these basis vectors in the earth's coordinate system. After lots and lots and lots of visualization and trial and error, I was able to come up with the equations below. I'd recommend looking at the figures and potentially playing around with a ball and stick model to verify for yourself that it's correct. The locations where _**p**_<sup>es</sup>, _**n**_<sup>es</sup>, or _**e**_<sup>es</sup> line up with _**x**_<sup>e</sup>, _**y**_<sup>e</sup>, or _**z**_<sup>e</sup> are good edge cases to use to gain intuition.
 
