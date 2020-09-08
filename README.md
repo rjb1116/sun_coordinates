@@ -79,7 +79,7 @@ _**B**_<sup>e</sup> is the vector that goes from the center of the earth to the 
 ![Figure 9](Figures/figure9.png)
 
 From the above figure, it's pretty straightforward to see that vector _**B**_<sup>e</sup> can be written as:
-
+![Figure 10](Figures/figure9.png)
 
 
 
