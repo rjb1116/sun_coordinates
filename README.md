@@ -41,23 +41,23 @@ The tricky part of this math is the reference frame (ie coordinate system) of th
 
 To reconcile this challenge, the key is to use coordinate transformations! The basic idea here is that we start with a vector in one coordinate system, transform it to the coordinate system of the vector we want to add it to, and then add that vector without too much trouble since the 2nd vector can be represented easily in the new coordinate system. The workflow is broken down as follows:
 
-1. Write vector _**A**_, which goes from the center of the sun to the center of the earth, in the sun's coordinate system (origin at center of the sun).
-2. Transform _**A**_ to the coordinate system of the earth (origin is at the center of the earth)
-3. Write vector _**B**_, which goes from the center of the earth to the earth's surface, in earth's coordinate system.
-4. Add _**A**_(transformed) and _**B**_ to get _**C**_, which is the vector we ultimately want, but is currently in the wrong coordinate system.
-5. Transform _**C**_ into the coordinate system of the earth's surface (origin centered at a person's feet on the surface)
+1. Write vector _**A**_<sup>s</sup>, which goes from the center of the sun to the center of the earth, in the sun's coordinate system (origin at center of the sun).
+2. Transform _**A**_<sup>s</sup> to _**A**_<sup>e</sup> so that it's in the coordinate system of the earth (origin is at the center of the earth)
+3. Write vector _**B**_<sup>e</sup>, which goes from the center of the earth to the earth's surface, in earth's coordinate system.
+4. Add _**A**_<sup>e</sup> and _**B**_<sup>e</sup> to get _**C**_<sup>e</sup>, which is the vector we ultimately want, but is currently in the wrong coordinate system.
+5. Transform _**C**_<sup>e</sup> to _**C**_<sup>es</sup> so that it's in the coordinate system of the earth's surface (origin centered at a person's feet on the surface)
 
-Useful guide to coordinate transformations can be found here:
+Useful guide about coordinate transformations can be found here:
 (https://ocw.mit.edu/courses/aeronautics-and-astronautics/16-07-dynamics-fall-2009/lecture-notes/MIT16_07F09_Lec03.pdf)
 
-### Step 1. Writing _**A**_
+### Step 1. Write _**A**_<sup>s</sup> in the sun's coordinate system
 
 ![Figure 3](Figures/figure3.png)
 
-From the above figure, it's pretty straightforward to see that vector _**A**_, in the coordinate system of the sun (superscript s), can be written as:
+From the above figure, it's pretty straightforward to see that vector _**A**_<sup>s</sup>, in the coordinate system of the sun (superscript s), can be written as:
 ![Figure 4](Figures/figure4.png)
 
-### Step 2. Transforming _**A**_ into earth's coodinate system
+### Step 2. Transforming _**A**_<sup>s</sup> to _**A**_<sup>e</sup> so that it's in earth's coodinate system
 
 We now have to transform _**A**_<sup>s</sup> to _**A**_<sup>e</sup> (coordinate system of the earth). Fun fact: If it were not for the fact that the earth rotated around a tilted axis, the earth and the sun would share the same coordinate system! This difference is the key to coming up with the basis vectors for the earth's coordinate system. The figure below will help illustrate visually how the sun's basis vectors and the earth's basis vectors differ.
 
@@ -71,6 +71,12 @@ To transform _**A**_<sup>s</sup>, we use the following formulas, which can be fo
 
 After wading through the tedious algebra, we get the following for _**A**_<sup>e</sup>:
 ![Figure 8](Figures/figure8.png)
+
+### Step 3. Write _**B**_<sup>e</sup> in the earth's coordinate system
+
+_**B**_<sup>e</sup> is the vector that goes from the center of the earth to the earth's surface at the location we're interested in. The location we're interested in is most easily represented by latitude and longitude, but we also have to take into account the rotation of the earth (ie what time it is!). The figure below shows how I visualized these properties:
+
+![Figure 9](Figures/figure9.png)
 
 
 
