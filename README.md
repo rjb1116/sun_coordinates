@@ -66,10 +66,11 @@ We now have to transform _**A**_<sup>s</sup> to _**A**_<sup>e</sup> (coordinate 
 From the figure, we see that y and z are shifted by the tilt of the earth. Luckily, we can define the new coordinate system where the tilt only occurs in the yz plane such that x is preserved! The basis vectors for earth's coordinate system are as follows:
 ![Figure 6](Figures/figure6.png)
 
-To transform _**A**_<sup>s</sup>, we use the following formula, which can be found in the MIT lecture notes I linked above.
+To transform _**A**_<sup>s</sup>, we use the following formulas, which can be found in the MIT lecture notes I linked above.
 ![Figure 7](Figures/figure7.png)
 
 After wading through the tedious algebra, we get the following for _**A**_<sup>e</sup>:
+![Figure 8](Figures/figure8.png)
 
 
 
