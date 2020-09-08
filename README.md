@@ -74,9 +74,21 @@ After wading through the tedious algebra, we get the following for _**A**_<sup>e
 
 ### Step 3. Write _**B**_<sup>e</sup> in the earth's coordinate system
 
-_**B**_<sup>e</sup> is the vector that goes from the center of the earth to the earth's surface at the location we're interested in. Any location on the surface of the earth can be represented by two angles, as shown in the figure below. 
+_**B**_<sup>e</sup> is the vector that goes from the center of the earth to the earth's surface at the location we're interested in. Any location on the surface of the earth can be represented by two angles, &theta;<sub>LL</sub> and &phi;<sub>LL</sub>, as shown in the figure below. 
 
 ![Figure 9](Figures/figure9.png)
+
+From the above figure, it's pretty straightforward to see that vector _**B**_<sup>e</sup> can be written as:
+
+
+
+
+
+
+
+
+
+
 
 These two angles are akin to longitude and latitude (hence the subscript LL), but there are a few key differences. The "longitude" (&theta;<sub>LL</sub>) also depends on the rotation of the earth (ie what time it is!). The "latitude" is defined to have a different zero point. I defined &phi;<sub>LL</sub> to be zero at the poles, but latitude is zero at the equator. Taking these corrections into account, we get the following formulas for &theta;<sub>LL</sub> and &phi;<sub>LL</sub>:
 
