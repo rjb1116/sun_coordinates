@@ -78,8 +78,13 @@ _**B**_<sup>e</sup> is the vector that goes from the center of the earth to the 
 
 ![Figure 9](Figures/figure9.png)
 
-From the above figure, it's pretty straightforward to see that vector _**B**_<sup>e</sup> can be written as:
+From the above figure, and using the definition of spherical coordinates, _**B**_<sup>e</sup> can be derived as:
 ![Figure 10](Figures/figure10.png)
+
+### Step 4. Add _**A**_<sup>e</sup> and _**B**_<sup>e</sup> to get _**C**_<sup>e</sup>
+
+To get _**C**_<sup>e</sup>, we need to add _**A**_<sup>e</sup> and _**B**_<sup>e</sup> and then flip the direction so that _**C**_<sup>e</sup> is pointing towards the sun:
+![Figure 11](Figures/figure11.png)
 
 
 
