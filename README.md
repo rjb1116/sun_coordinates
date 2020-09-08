@@ -24,7 +24,7 @@ Now, you should be able to run the code. It takes three inputs: time, location, 
 
 Command Line Instructions:
 * -d: Date and time string of form 'YYYY-MM-DD HH:MM:SS'
-* -c: String containing the city. This input is relatively versatile since multiple city structures are accepted (for example: San Francisco or San Francisco, CA)
+* -c: String containing the city. This input is relatively versatile since multiple city structures are accepted (for example: San Francisco or San Francisco, CA). If your city is two words, or you're including state/country, make sure to use quotes ''.
 * -p: Write a save file name + extension to save an image of the 3D visualization locally
 
 Example Command Line Input:
