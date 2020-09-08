@@ -1,0 +1,6 @@
+
+matplotlib==3.1.2
+numpy==1.17.4
+pytz==2019.3
+geopy==1.21.0
+tzwhere==3.0.3
