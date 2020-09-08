@@ -26,6 +26,10 @@ Example Command Line Input:
 ```
 python sun.py -d '2020-09-07 13:54:00' -c 'San Francisco' -p True
 ```
+Default inputs:
+* If no inputs are provided, the model will output the sun's location in San Francisco, CA at the current time it is in SF.
+* If just the city is provided, the model will output the sun's location in that city at that city's current time.
+* If just a date and time are provided, the model will output the sun's location in SF at the date and time provided.
 
 ## Math behind calculations
 
