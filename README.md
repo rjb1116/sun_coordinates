@@ -46,6 +46,8 @@ To reconcile this challenge, the key is to use coordinate transformations! The b
 3. Write vector _**B**_<sup>e</sup>, which goes from the center of the earth to the earth's surface, in earth's coordinate system.
 4. Add _**A**_<sup>e</sup> and _**B**_<sup>e</sup> to get _**C**_<sup>e</sup>, which is the vector we ultimately want, but is currently in the wrong coordinate system.
 5. Transform _**C**_<sup>e</sup> to _**C**_<sup>es</sup> so that it's in the coordinate system of the earth's surface (origin centered at a person's feet on the surface)
+6. Calculate Theta_from_North and Phi_from_Horizon from _**C**_<sup>es</sup>
+7. Write dependent variables in terms of model inputs: time and location.
 
 Useful guide about coordinate transformations can be found here:
 (https://ocw.mit.edu/courses/aeronautics-and-astronautics/16-07-dynamics-fall-2009/lecture-notes/MIT16_07F09_Lec03.pdf)
@@ -96,7 +98,15 @@ The challenge is representing these basis vectors in the earth's coordinate syst
 
 ![Figure 13](Figures/figure13.png)
 
+Now that we have the basis vector for the earth's surface coordinate system, we can plug them in to the same coordinate transform formula we used earlier and, after even more tedious math, we get out _**C**_<sup>es</sup>!
 
+![Figure 14](Figures/figure14.png)
+
+### Step 6. Calculate Theta_from_North and Phi_from_Horizon from _**C**_<sup>es</sup>
+
+Now that we have the vector that points to the sun from the earth's surface (and it's in the right coordinate system!), we can easily calculate Theta_from_North and Phi_from_Horizon, the two main outputs given by the model, using basic spherical coordinate definitions. We do this last step since a theta and phi are much easier to use to find the sun in your head compared to using the relative magnitudes of xyz vectors to figure out where the sun is.
+
+ ![Figure 15](Figures/figure15.png) 
 
 
 
