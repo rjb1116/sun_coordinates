@@ -16,7 +16,7 @@ A 3D visualization using Matplotlib of the sun's location in the sky is also out
 First, setup environment and install dependencies by running:
 
 ```
-venv .
+python3 -m venv .
 . bin/activate
 pip install -r requirements.txt
 ```
