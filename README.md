@@ -16,9 +16,7 @@ A 3D visualization using Matplotlib of the sun's location in the sky is also out
 First, setup environment and install dependencies by running:
 
 ```
-python3 -m venv .
-. bin/activate
-pip install -r requirements.txt
+conda create --name sun --file requirements.txt
 ```
 Now, you should be able to run the code. It takes three inputs: time, location, and save figure boolean. These inputs can be given in the command line, or by modifying the get_inputs(args) method within the script directly.
 
@@ -36,6 +34,8 @@ Default inputs:
 * If no inputs are provided, the model will output the sun's location in San Francisco, CA at the current time it is in SF.
 * If just the city is provided, the model will output the sun's location in that city at that city's current time.
 * If just a date and time are provided, the model will output the sun's location in SF at the date and time provided.
+
+The National Oceanic and Atmospheric Administration has a website that will provide the precise location of the sun (https://www.esrl.noaa.gov/gmd/grad/solcalc/). See how my values compare!
 
 ## Physics behind model
 
