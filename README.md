@@ -35,7 +35,7 @@ Default inputs:
 * If just the city is provided, the model will output the sun's location in that city at that city's current time.
 * If just a date and time are provided, the model will output the sun's location in SF at the date and time provided.
 
-The National Oceanic and Atmospheric Administration has a website that will provide the precise location of the fun (https://www.esrl.noaa.gov/gmd/grad/solcalc/). See how my values compare!
+The National Oceanic and Atmospheric Administration has a website that will provide the precise location of the sun (https://www.esrl.noaa.gov/gmd/grad/solcalc/). See how my values compare!
 
 ## Physics behind model
 
