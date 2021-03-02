@@ -17,7 +17,7 @@ def get_inputs(args):
 	Inputs 
 		args: command line arguments
 	Outputs
-		date_time_local: Aware datetime obj (has timezone) of time at location you're interested in)
+		date_time_local: Aware datetime obj (has timezone) of time at location you're interested in
 		LA: latitude in decimal format
 		LO: longitude in decimal format
 		city
@@ -43,17 +43,21 @@ def get_inputs(args):
 		print('Lat:', LA, 'Lon:', LO)
 
 	# get timezone from LA and LO
-	tz = tzwhere.tzwhere(forceTZ=True)  #initialize timezone finder  
+	tz = tzwhere.tzwhere(forceTZ=True)  #initialize timezone finder 
 	timezone = pytz.timezone(tz.tzNameAt(LA, LO, forceTZ=True))
 
 	#date and time input
-	if args.date_time == None:
+	if args.date_time == None:  #if no time provided, get the current in the timezone of interest
 		date_time_local = dt.datetime.now(timezone)    
 		print('Using defaut time (current time at location):', date_time_local)
-	else:  #default datetime input
-		date_time = dt.datetime.strptime(args.date_time, '%Y-%m-%d %H:%M:%S')
-		date_time_local = timezone.localize(date_time)
-		print('Using time input:', date_time_local)
+	else:
+		try: 
+			date_time = dt.datetime.strptime(args.date_time, '%Y-%m-%d %H:%M:%S')
+			date_time_local = timezone.localize(date_time)
+			print('Using time input:', date_time_local)
+		except:
+			print('Error with time input, make sure format is %Y-%m-%d %H:%M:%S')
+			exit()
 
 	
 	print('Using timezone:', timezone)
@@ -147,7 +151,6 @@ def make_3D_plot(Theta, Phi, Theta_from_North, Phi_from_Horizon, date_time_local
 	Outputs
 		3D plot
 	''' 
-
 	#3D plot of sun location
 	fig = plt.figure(figsize=(10, 8))
 	ax = fig.add_subplot(111, projection='3d')
