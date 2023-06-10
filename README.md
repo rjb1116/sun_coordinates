@@ -1,53 +1,27 @@
 # sun_coordinates
+
 Get the spherical coordinates of the sun in the sky from any location on earth at any time
 
-## Quick Summary
-The sun.py script can take in any location in the world, and any time, and output the spherical coordinates of the sun from the perpective of a person standing on the earth's surface at that location. This is done using vector addition and coordinate transformations (elaborated on later).
-
-The location of the sun is given by two angles:
-* Theta_from_North - angle measured clockwise from due north to the point on the horizon underneath the sun
-* Phi_from_Horizon: - angle from the horizon up to the sun
-
-A 3D visualization using Matplotlib of the sun's location in the sky is also outputted by the model:
 ![Figure1](Figures/figure1.png)
 
-## How to run the code
-
-First, setup environment and install dependencies by running:
-
-```
-conda create --name sun --file requirements.txt
-```
-Now, you should be able to run the code. It takes three inputs: time, location, and save figure boolean. These inputs can be given in the command line, or by modifying the get_inputs(args) method within the script directly.
-
-Command Line Instructions:
-* -d: Date and time string of form 'YYYY-MM-DD HH:MM:SS'
-* -c: String containing the city. This input is relatively versatile since multiple city structures are accepted (for example: San Francisco or San Francisco, CA). If your city is two words, or you're including state/country, make sure to use quotes ''.
-* -p: Write a save file name + extension to save an image of the 3D visualization locally
-
-Example Command Line Input:
-
-```
-python sun.py -d '2020-09-07 13:54:00' -c 'San Francisco' -p out.png
-```
-Default inputs:
-* If no inputs are provided, the model will output the sun's location in San Francisco, CA at the current time it is in SF.
-* If just the city is provided, the model will output the sun's location in that city at that city's current time.
-* If just a date and time are provided, the model will output the sun's location in SF at the date and time provided.
-
-The National Oceanic and Atmospheric Administration has a website that will provide the precise location of the sun (https://www.esrl.noaa.gov/gmd/grad/solcalc/). See how my values compare!
+Checkout out the live app on my website (https://reubenbritto.com/solartracker) or scroll to the end if you'd rather run a python file locally!
 
 ## Physics behind model
 
-The key calculation is getting the vector that points from the person on the surface of the earth to the sun (Vector C in the figure below). 
+The location of the sun is given by two angles:
+
+- &theta; (azimuth) - angle measured clockwise from due north to the point on the horizon underneath the sun
+- &Phi; (elevation) - angle from the horizon up to the sun
+
+The key calculation is getting the vector that points from the person on the surface of the earth to the sun (Vector C in the figure below).
 
 ![Figure2](Figures/figure2.png)
 
 This can be calculated simply by adding two vectors: a vector pointing from the center of the sun to the center of the earth (Vector A) and a vector pointing from the center of the earth to the surface of the earth (Vector B).
 
-_**A**_ + _**B**_ = -_**C**_ 
+_**A**_ + _**B**_ = -_**C**_
 
-The tricky part of this math is the reference frame (ie coordinate system) of the vectors. Ultimately, we want vector C in the reference frame of a person standing on the surface of the earth. In other words, the origin should be at the person's feet, with x pointing east, y pointing north, and z pointing straight up. The reason we want this is that Theta_from_North and Phi_from_Horizon pop out super easily from those x, y, and z coordinates. Unfortunately, representing vectors _**A**_ and _**B**_ in the earth's surface coordinate system is difficult. However, _**A**_ and _**B**_ can be represented easily in different coordinate systems: _**A**_ can be represented easily in a coordinate system with the origin at the sun, and _**B**_ can be represented easily with an origin at the center of the earth.
+The tricky part of this math is the reference frame (ie coordinate system) of the vectors. Ultimately, we want vector C in the reference frame of a person standing on the surface of the earth. In other words, the origin should be at the person's feet, with x pointing east, y pointing north, and z pointing straight up. The reason we want this is that Theta\*from\*North and Phi\*from\*Horizon pop out super easily from those x, y, and z coordinates. Unfortunately, representing vectors **\*A\*** and **\*B\*** in the earth's surface coordinate system is difficult. However, _**A**_ and _**B**_ can be represented easily in different coordinate systems: \_**A**\_ can be represented easily in a coordinate system with the origin at the sun, and \_**B**\_ can be represented easily with an origin at the center of the earth.
 
 To reconcile this challenge, the key is to use coordinate transformations! The basic idea here is that we start in the coordinate system that's easiest to intuitively write the vector we want, then we transform it to the coordinate system of the vector we want to add it to. Our specific workflow is broken down as follows:
 
@@ -56,7 +30,7 @@ To reconcile this challenge, the key is to use coordinate transformations! The b
 3. Write vector _**B**_<sup>earth</sup>, which goes from the center of the earth to the earth's surface, in earth's coordinate system.
 4. Add _**A**_<sup>earth</sup> and _**B**_<sup>earth</sup> to get _**C**_<sup>earth</sup>, which is the vector we ultimately want, but is currently in the wrong coordinate system.
 5. Transform _**C**_<sup>earth</sup> to _**C**_<sup>surf</sup> so that it's in the coordinate system of the earth's surface (origin centered at a person's feet on the surface)
-6. Calculate Theta_from_North and Phi_from_Horizon from _**C**_<sup>surf</sup>
+6. Calculate Theta\*from_North and Phi_from_Horizon from **\*C**\_<sup>surf</sup>
 7. Write dependent variables in terms of model inputs: time and location.
 
 Useful guide about coordinate transformations can be found here:
@@ -86,7 +60,7 @@ After wading through the tedious algebra, we get the following for _**A**_<sup>e
 
 ### Step 3. Write _**B**_<sup>earth</sup> in the earth's coordinate system
 
-_**B**_<sup>earth</sup> is the vector that goes from the center of the earth to the earth's surface at the location we're interested in. Any location on the surface of the earth can be represented by two angles, &theta;<sub>LL</sub> and &phi;<sub>LL</sub> (LL since these quantities act kind of like longitude and latitude), as shown in the figure below. 
+_**B**_<sup>earth</sup> is the vector that goes from the center of the earth to the earth's surface at the location we're interested in. Any location on the surface of the earth can be represented by two angles, &theta;<sub>LL</sub> and &phi;<sub>LL</sub> (LL since these quantities act kind of like longitude and latitude), as shown in the figure below.
 
 ![Figure 9](Figures/figure9.png)
 
@@ -112,15 +86,15 @@ Now that we have the basis vector for the earth's surface coordinate system, we 
 
 ![Figure 14](Figures/figure14.png)
 
-### Step 6. Calculate Theta_from_North and Phi_from_Horizon from _**C**_<sup>surf</sup>
+### Step 6. Calculate Theta\*from_North and Phi_from_Horizon from **\*C**\_<sup>surf</sup>
 
 Now that we have the vector that points to the sun from the earth's surface (and it's in the right coordinate system!), we can easily calculate Theta_from_North and Phi_from_Horizon, the two main outputs given by the model, using basic spherical coordinate definitions. We do this last step since theta and phi are much easier to use to find the sun compared to using the relative magnitudes of xyz vectors to figure out where the sun is.
 
- ![Figure 15](Figures/figure15.png) 
+![Figure 15](Figures/figure15.png)
 
 ### Step 7. Write dependent variables in terms of model inputs: time and location.
 
-While _**C**_<sup>surf</sup> is the only vector we need to calculate Theta_from_North and Phi_from_Horizon, its dependent variables are &theta;<sub>LL</sub>, &phi;<sub>LL</sub>, are &theta;<sub>EO</sub> (&phi;<sub>E</sub> is a constant), which we don't actually input to the model. What we do input are a date, time, and longitude and latitude. 
+While _**C**_<sup>surf</sup> is the only vector we need to calculate Theta_from_North and Phi_from_Horizon, its dependent variables are &theta;<sub>LL</sub>, &phi;<sub>LL</sub>, are &theta;<sub>EO</sub> (&phi;<sub>E</sub> is a constant), which we don't actually input to the model. What we do input are a date, time, and longitude and latitude.
 
 &theta;<sub>LL</sub> and &phi;<sub>LL</sub> are akin to longitude and latitude, but there are a few key differences. The "longitude" (&theta;<sub>LL</sub>) also depends on the rotation of the earth (ie what time it is!). The "latitude" is defined to have a different zero point. I defined &phi;<sub>LL</sub> to be zero at the poles, but latitude is zero at the equator. &theta;<sub>EO</sub> is the angular position of the earth in its orbit around the sun. This also depends on the date and time!
 
@@ -136,18 +110,36 @@ t<sub>year</sub> is the amount of time in a year, and t<sub>SRday</sub> is the a
 
 There you have it! A detailed explanation behind how I created this model that can give the location of the sun in the sky at any time and location. As you've probably already guessed, this model isn't entirely accurate because a lot of assumptions are intrinsically present in the math, such as assuming perfectly circular orbits. It turns out that there are a lot of weird idiosyncrasies in orbital mechanics that were too complex for this first version of this model. Despite that, my random testing of the model showed that the outputted angles were usually accurate to within 10 degrees, which I think is not bad at all for an analytical model such as this.
 
-Hope you enjoy using this model as much as I enjoyed making it! Thanks! 
+The National Oceanic and Atmospheric Administration has a website that will provide the precise location of the sun (https://www.esrl.noaa.gov/gmd/grad/solcalc/). See how my values compare!
 
+Hope you enjoy using this model as much as I enjoyed making it! Thanks!
 
+## How to run the code
 
+The sun.py script can take in any location in the world, and any time, and output the spherical coordinates of the sun from the perpective of a person standing on the earth's surface at that location. This is done using vector addition and coordinate transformations (elaborated on later).
 
+First, setup environment and install dependencies by running:
 
+```
+conda create --name sun --file requirements.txt
+```
 
+Now, you should be able to run the code. It takes three inputs: time, location, and save figure boolean. These inputs can be given in the command line, or by modifying the get_inputs(args) method within the script directly.
 
+Command Line Instructions:
 
+- -d: Date and time string of form 'YYYY-MM-DD HH:MM:SS'
+- -c: String containing the city. This input is relatively versatile since multiple city structures are accepted (for example: San Francisco or San Francisco, CA). If your city is two words, or you're including state/country, make sure to use quotes ''.
+- -p: Write a save file name + extension to save an image of the 3D visualization locally
 
+Example Command Line Input:
 
+```
+python sun.py -d '2020-09-07 13:54:00' -c 'San Francisco' -p out.png
+```
 
+Default inputs:
 
-
-
+- If no inputs are provided, the model will output the sun's location in San Francisco, CA at the current time it is in SF.
+- If just the city is provided, the model will output the sun's location in that city at that city's current time.
+- If just a date and time are provided, the model will output the sun's location in SF at the date and time provided.
