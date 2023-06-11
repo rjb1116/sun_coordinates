@@ -21,7 +21,7 @@ This can be calculated simply by adding two vectors: a vector pointing from the 
 
 _**A**_ + _**B**_ = -_**C**_
 
-The tricky part of this math is the reference frame (ie coordinate system) of the vectors. Ultimately, we want vector C in the reference frame of a person standing on the surface of the earth. In other words, the origin should be at the person's feet, with x pointing east, y pointing north, and z pointing straight up. The reason we want this is that Theta\*from\*North and Phi\*from\*Horizon pop out super easily from those x, y, and z coordinates. Unfortunately, representing vectors **\*A\*** and **\*B\*** in the earth's surface coordinate system is difficult. However, _**A**_ and _**B**_ can be represented easily in different coordinate systems: \_**A**\_ can be represented easily in a coordinate system with the origin at the sun, and \_**B**\_ can be represented easily with an origin at the center of the earth.
+The tricky part of this math is the reference frame (ie coordinate system) of the vectors. Ultimately, we want vector C in the reference frame of a person standing on the surface of the earth. In other words, the origin should be at the person's feet, with x pointing east, y pointing north, and z pointing straight up. The reason we want this is that &theta; and &Phi; pop out super easily from those x, y, and z coordinates. Unfortunately, representing vectors _**A**_ and _**B**_ in the earth's surface coordinate system is difficult. However, _**A**_ and _**B**_ can be represented easily in different coordinate systems: _**A**_ can be represented easily in a coordinate system with the origin at the sun, and _**B**_ can be represented easily with an origin at the center of the earth.
 
 To reconcile this challenge, the key is to use coordinate transformations! The basic idea here is that we start in the coordinate system that's easiest to intuitively write the vector we want, then we transform it to the coordinate system of the vector we want to add it to. Our specific workflow is broken down as follows:
 
@@ -30,7 +30,7 @@ To reconcile this challenge, the key is to use coordinate transformations! The b
 3. Write vector _**B**_<sup>earth</sup>, which goes from the center of the earth to the earth's surface, in earth's coordinate system.
 4. Add _**A**_<sup>earth</sup> and _**B**_<sup>earth</sup> to get _**C**_<sup>earth</sup>, which is the vector we ultimately want, but is currently in the wrong coordinate system.
 5. Transform _**C**_<sup>earth</sup> to _**C**_<sup>surf</sup> so that it's in the coordinate system of the earth's surface (origin centered at a person's feet on the surface)
-6. Calculate Theta\*from_North and Phi_from_Horizon from **\*C**\_<sup>surf</sup>
+6. Calculate &theta; and &Phi; from _**C**_<sup>surf</sup>
 7. Write dependent variables in terms of model inputs: time and location.
 
 Useful guide about coordinate transformations can be found here:
@@ -86,15 +86,15 @@ Now that we have the basis vector for the earth's surface coordinate system, we 
 
 ![Figure 14](Figures/figure14.png)
 
-### Step 6. Calculate Theta\*from_North and Phi_from_Horizon from **\*C**\_<sup>surf</sup>
+### Step 6. Calculate &theta; and &Phi; from _**C**_<sup>surf</sup>
 
-Now that we have the vector that points to the sun from the earth's surface (and it's in the right coordinate system!), we can easily calculate Theta_from_North and Phi_from_Horizon, the two main outputs given by the model, using basic spherical coordinate definitions. We do this last step since theta and phi are much easier to use to find the sun compared to using the relative magnitudes of xyz vectors to figure out where the sun is.
+Now that we have the vector that points to the sun from the earth's surface (and it's in the right coordinate system!), we can easily calculate &theta; and &Phi;, the two main outputs given by the model, using basic spherical coordinate definitions. We do this last step since theta and phi are much easier to use to find the sun compared to using the relative magnitudes of xyz vectors to figure out where the sun is.
 
 ![Figure 15](Figures/figure15.png)
 
 ### Step 7. Write dependent variables in terms of model inputs: time and location.
 
-While _**C**_<sup>surf</sup> is the only vector we need to calculate Theta_from_North and Phi_from_Horizon, its dependent variables are &theta;<sub>LL</sub>, &phi;<sub>LL</sub>, are &theta;<sub>EO</sub> (&phi;<sub>E</sub> is a constant), which we don't actually input to the model. What we do input are a date, time, and longitude and latitude.
+While _**C**_<sup>surf</sup> is the only vector we need to calculate &theta; and &Phi;, its dependent variables are &theta;<sub>LL</sub>, &phi;<sub>LL</sub>, are &theta;<sub>EO</sub> (&phi;<sub>E</sub> is a constant), which we don't actually input to the model. What we do input are a date, time, and longitude and latitude.
 
 &theta;<sub>LL</sub> and &phi;<sub>LL</sub> are akin to longitude and latitude, but there are a few key differences. The "longitude" (&theta;<sub>LL</sub>) also depends on the rotation of the earth (ie what time it is!). The "latitude" is defined to have a different zero point. I defined &phi;<sub>LL</sub> to be zero at the poles, but latitude is zero at the equator. &theta;<sub>EO</sub> is the angular position of the earth in its orbit around the sun. This also depends on the date and time!
 
@@ -102,7 +102,7 @@ Taking these corrections into account, we get the following formulas for &theta;
 
 ![Figure 16](Figures/figure16.png)
 
-LO is longitude and LA is latitude, both in decimal degress. &Delta;t is the amount of time between the time inputted in the model, and an initial condition time. In this model, I chose March 20, 2020 at noon, which is the spring equinox, as the initial condition. At LO, LA = 0 and &Delta;t = 0, which is the equivalent of being at the intersection of the equator and prime meridian right when the spring equinox is happening, the sun should be really close to being direclty overhead. Plug in these values to our equations and that's what you'll get (technically Theta_from_North is undefined, but that's because the sun is direclty overhead!).
+LO is longitude and LA is latitude, both in decimal degress. &Delta;t is the amount of time between the time inputted in the model, and an initial condition time. In this model, I chose March 20, 2020 at noon, which is the spring equinox, as the initial condition. At LO, LA = 0 and &Delta;t = 0, which is the equivalent of being at the intersection of the equator and prime meridian right when the spring equinox is happening, the sun should be really close to being direclty overhead. Plug in these values to our equations and that's what you'll get (technically &theta; is undefined, but that's because the sun is direclty overhead!).
 
 t<sub>year</sub> is the amount of time in a year, and t<sub>SRday</sub> is the amount of time in a sidereal day. A sidereal day is the amount of time it takes the earth to rotate exaclty 360 degress, which is a little less than 24 hours. The reason it takes 24 hours for the sun to return to the same spot in the sky is because the earth has moved in it's orbit ever so slightly such that the earth has to overrotate just that little bit. Check out this well written wiki article to learn more: https://en.wikipedia.org/wiki/Sidereal_time#:~:text=Briefly%2C%20sidereal%20time%20is%20a,at%20the%20same%20sidereal%20time.
 
